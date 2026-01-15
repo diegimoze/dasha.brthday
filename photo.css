@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(img/bg\ \(1\).jpg);
+}
+
+@font-face {
+    font-family: 'ComicCAT';
+    src: url('font/Comic_CAT.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    overflow: hidden;
+    max-width: 1300px;
+    margin: auto;
+}
+
+.gallery__strip {
+    min-height: 100vh;
+}
+
+.gallery__strip__wrapper {
+    flex: 0 0 100%;
+    justify-content: flex-end;
+
+    border-right: 2px solid #333;
+    position: relative;
+}
+
+@media (min-width: 500px) {
+    .gallery__strip__wrapper {
+        flex: 0 0 50%;
+    }
+}
+
+@media (min-width: 950px) {
+    .gallery {
+        height: 100vh;
+    }
+
+    .gallery__strip__wrapper {
+        flex: 0 0 25%;
+        overflow: hidden;
+    }
+
+    /* Колонки 1 и 3 - вверх */
+    .gallery__strip.one {
+        animation: scroll-up 40s linear infinite;
+    }
+
+    .gallery__strip.three {
+        animation: scroll-up 50s linear infinite;
+    }
+
+    /* Колонки 2 и 4 - вниз */
+    .gallery__strip.two {
+        animation: scroll-down 45s linear infinite;
+    }
+
+    .gallery__strip.four {
+        animation: scroll-down 55s linear infinite;
+    }
+
+    .gallery__strip:hover {
+        animation-play-state: paused;
+    }
+}
+
+.photo {
+    position: relative;
+    text-align: right;
+    padding-bottom: 3rem;
+}
+
+.photo__image img {
+    width: 90%;
+    transform: translateX(30%);
+    transition: 1s cubic-bezier(0.19, 1, 0.22, 1) 0.2s;
+}
+
+.photo__name {
+    text-transform: uppercase;
+    font-size: 40px;
+    letter-spacing: 2px;
+    color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
+    margin-top: -25px;
+    transition: 0.4s ease-in-out 0.4s;
+    position: relative;
+    width: 100%;
+}
+
+.photo:hover .photo__image img {
+    transform: translateX(0%);
+}
+
+.photo:hover .photo__name {
+    color: #fff;
+}
+
+/* Бесконечная прокрутка вверх */
+@keyframes scroll-up {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-50%);
+    }
+}
+
+/* Бесконечная прокрутка вниз */
+@keyframes scroll-down {
+    0% {
+        transform: translateY(-50%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}

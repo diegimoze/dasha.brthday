@@ -1,0 +1,77 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(img/bg2.png);
+    font-family: 'ComicCAT', sans-serif;
+
+}
+
+body::selection {
+    background: rgba(164, 104, 216, 0.495);
+}
+
+h1::selection {
+    color: white;
+    -webkit-text-stroke: 1px #824848;
+    text-shadow: 2px 2px 4px rgba(149, 53, 53, 0.5);
+}
+
+@font-face {
+    font-family: 'ComicCAT';
+    src: url('font/Comic_CAT.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1 {
+    font-size: 10rem;
+    margin: 100px;
+    margin-bottom: 24px;
+    color: #9aab8e;
+    text-shadow:
+        0 0 25px rgba(255, 180, 200, 0.7),
+        0 0 50px rgba(255, 160, 180, 0.4),
+        0 0 80px rgba(255, 140, 170, 0.25);
+}
+
+p {
+    font-size: 1.75rem;
+    width: 80%;
+    margin-bottom: 34px;
+    color: #e8a0b0;
+    -webkit-text-stroke: 0.5px #9aab8e;
+}
+
+main {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    justify-content: center;
+}
+
+.content-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.content-row p {
+    flex: 1;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.side-img {
+    width: 250px;
+    height: 250px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
